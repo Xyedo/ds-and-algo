@@ -1,0 +1,1 @@
+This is My Own Data Structure and Algotihm in Typescript
