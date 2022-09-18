@@ -55,3 +55,5 @@ export default function insertionSort2<T>(array: T[]): T[] {
   }
   return array;
 }
+
+

@@ -57,13 +57,15 @@ class BinarySearchTree {
   }
   breadthFirstSearch() {
     let currNode = this.root;
-    let list = [];
+    const list: number[] = [];
     let queue = new Queue<BinaryNode<number>>();
-
+    if (!currNode) {
+      return;
+    }
     queue.enqueue(currNode);
     while (queue.length > 0) {
       currNode = queue.dequeue();
-      list.push(currNode.value);
+      list.push(currNode?.value);
       if (currNode.left) {
         queue.enqueue(currNode.left);
       }
@@ -139,16 +141,7 @@ class BinarySearchTree {
     return list;
   }
 }
-function traverse<T>(node: BinaryNode<T>): BinaryNode<T> {
-  if (node === null) {
-    throw new Error("parameter node is null");
-  }
-  return {
-    value: node.value,
-    left: node.left === null ? null : traverse(node.left),
-    right: node.right === null ? null : traverse(node.right),
-  } as BinaryNode<T>;
-}
+
 const myBST = new BinarySearchTree();
 
 myBST.insert(9).insert(4).insert(20).insert(1).insert(6).insert(15).insert(170);

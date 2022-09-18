@@ -1,0 +1,15 @@
+{
+  "name": "ds-and-algo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Xyedo/ds-and-algo.git",
+  "author": "Xyedo <hafidmahdi23@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.3"
+  }
+}

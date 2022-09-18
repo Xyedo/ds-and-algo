@@ -23,7 +23,7 @@ class DoubleLinkedList<T> {
   //newNode this.head<->2<->3<->this.tail
   prepend(value: T): DoubleLinkedList<T> {
     const newNode = new DoubleNodeLL(value, this.head);
-    this.head.prev = newNode;
+    if (this.head) this.head.prev = newNode;
     this.head = newNode;
     this._length++;
     return this;
@@ -57,10 +57,11 @@ class DoubleLinkedList<T> {
   }
   //this.head<->2<->3<->4<->this.tail-> null
   //this.head<->2<->3<->4<->this.tail-> null
-  remove(index: number): DoubleLinkedList<T> {
+  remove(index: number): DoubleLinkedList<T> | null {
     if (index >= this._length) {
       throw new Error("Index out of bounds");
     }
+    if (!this.head) return null;
     if (!this.head.next) {
       this.head = null;
       this.tail = null;
@@ -75,7 +76,7 @@ class DoubleLinkedList<T> {
     }
 
     const pointer = this._traverseLinkedList(index);
-    if (pointer?.next) {
+    if (pointer?.next?.next) {
       pointer.next.next.prev = pointer;
       pointer.next = pointer.next.next;
     }
